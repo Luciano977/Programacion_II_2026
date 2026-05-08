@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Clientes.h"
 
 
@@ -7,45 +8,52 @@ using namespace std;
 ///CONSTRUCTORES
 Clientes::Clientes(){
 
+   _CodCliente =0;
+   strcpy(_nombre, "");
+   strcpy(_apellido, "");
+   strcpy(_domicilio, "");
+   strcpy(_condIVA, "");
+   _CUIT = 0;
 }
 
 ///seters
 void Clientes::setCodCliente(int CodCliente){
     _CodCliente = CodCliente;
 }
-void Clientes::setNombre(std::string nombre){
-    _nombre = nombre;
+void Clientes::setNombre(const char nombre[]){
+    strcpy(_nombre, nombre);
 }
-void Clientes::setApellido(std::string apellido){
-    _apellido = apellido;
+void Clientes::setApellido(const char apellido[]){
+    strcpy(_apellido, apellido);
 }
-void Clientes::setDomicilio(std::string domicilio){
-    _domicilio = domicilio;
+void Clientes::setDomicilio(const char domicilio[]){
+    strcpy(_domicilio, domicilio);
 }
-void Clientes::setCodIVA(std::string condIVA){
-    _condIVA = condIVA;
+void Clientes::setCodIVA(const char condIVA[]){
+    strcpy(_condIVA, condIVA);
 }
 void Clientes::setCUIT(int CUIT){
     _CUIT = CUIT;
 }
 
 ///geters
+
 int Clientes::getCodCliente(){
     return _CodCliente;
 }
-int Clientes::getNombre(){
+const char* Clientes::getNombre(){
     return _nombre;
 }
-int Clientes::getApellido(){
+const char* Clientes::getApellido(){
     return _apellido;
 }
-int Cliente::getDomicilio(){
+const char* Clientes::getDomicilio(){
     return _domicilio;
 }
-int Clientes::getCodIVA(){
-    return _CodIVA;
+const char* Clientes::getCodIVA(){
+    return _condIVA;
 }
-int Cliente::getCUIT(){
+int Clientes::getCUIT(){
     return _CUIT;
 }
 
@@ -53,16 +61,21 @@ int Cliente::getCUIT(){
 void Clientes::Alta(){
     cout<<"Ingrese el Codigo del cliente: ";
     cin>>_CodCliente;
+
     cout<<"Ingrese el Nombre del cliente: ";
-    cin>>_nombre;
+    cin.getline(_nombre, 50);
+
     cout<<"Ingrese el Apellido del cliente: ";
-    cin>>_apellido;
+    cin.getline(_apellido, 50);
+
     cout<<"Ingrese el Domicilio del cliente: ";
-    cin>>_domicilio;
+    cin.getline(_domicilio, 100);
+
     cout<<"Ingrese la Condicion ante el IVA del cliente: ";
-    cin>>_condIVA;
+    cin.getline(_condIVA, 25);
+
     cout<<"Ingrese la CUIT del cliente: ";
-    cin>>_condIVA;
+    cin>>_CUIT;
 
 }
 void Clientes::Consultar(){
@@ -82,6 +95,6 @@ void Clientes::Mostrar(){
     cout<<"Ingrese el Apellido del cliente: "<<_apellido;
     cout<<"Ingrese el Domicilio del cliente: "<<_domicilio;
     cout<<"Ingrese la Condicion ante el IVA del cliente: "<<_condIVA;
-    cout<<"Ingrese la CUIT del cliente: "<<_condIVA;
+    cout<<"Ingrese la CUIT del cliente: "<<_CUIT;
 
 }

@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string>
 
 
 class Clientes{
@@ -8,10 +8,10 @@ public:
     Clientes();
     ///seters
     void setCodCliente(int CodCliente);
-    void setNombre(std::string nombre);
-    void setApellido(std::string apellido);
-    void setDomicilio(std::string domicilio);
-    void setCodIVA(std::string condIVA);
+    void setNombre(const char nombre[]);
+    void setApellido(const char apellido[]);
+    void setDomicilio(const char domicilio[]);
+    void setCodIVA(const char condIVA[]);
     void setCUIT(int CUIT);
 
     ///geters
@@ -32,12 +32,11 @@ public:
 private:
 
     int _CodCliente;
-    std::string _nombre;
-    std::string _apellido;
-    std::string _domicilio;
-    std::string _condIVA;
+    char _nombre[50];
+    char _apellido[50];
+    char _domicilio[100];
+    char _condIVA[25];
     int _CUIT;
-
 
 
 };
