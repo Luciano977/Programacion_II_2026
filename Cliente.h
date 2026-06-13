@@ -1,22 +1,15 @@
 #pragma once
+#include <cstring>
+#include "Persona.h"
 
-  #include <cstring>
-
-  class Cliente{
+class Cliente:public Persona{
 
 private:
 
     int _codCliente;
-
-    char _nombre[50];
-    char _apellido[50];
-    char _domicilio[100];
-    char _telefono[30];
-    char _email[100];
-    char _condIva[25];
-    char _cuit[20];
-
-    bool _estado;
+	char _condIva[25];
+	char _cuit[20];
+   
 
 public:
 
@@ -24,50 +17,17 @@ public:
 
      Cliente();
 
-     void setcodCliente(int codCliente);
-
-     void setNombre(const char nombre[]);
-
-     void setApellido(const char apellido[]);
-
-     void setDomicilio(const char domicilio[]);
-
-     void setTelefono(const char telefono[]);
-
-     void setEmail(const char email[]);
-
-     void setCodIva(const char condIva[]);
-
-     void setCuit (const char cuit []);
-
-     void setEstado(bool estado);
+	void setcodCliente(int codCliente);
+	void setCodIva(const char condIva[]);	  
+	void setCuit (const char cuit []);
 
      //getters
 
-     int getcodCliente();
-
-     const char* getNombre();
-
-     const char* getApellido();
-
-     const char* getDomicilio();
-
-     const char* getTelefono();
-
-     const char* getEmail();
-
-     const char* getCondIva();
-
-     const char* getCuit();
-
-     bool getEstado();
-
-
-
-
+	int getcodCliente();
+	const char* getCondIva();
+	const char* getCuit();
       //metodos
 
-      void Alta();
-      void Mostrar();
-      void Baja();
+	void Cargar();
+	void Mostrar();
 };
